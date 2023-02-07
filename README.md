@@ -4,9 +4,9 @@
 
 ## 2. 배열 랜더링해서 json 파일 불러오기
 
-[array].map(([item])=> {return([html]);})
+- [array].map(([item])=> {return([html]);})
 
 ## 3. sort로 정렬바꾸기
 
-const [order, setOrder] = useState("createdAt");
-const sortedItems = items.sort((a, b) => b[order] - a[order]);
+- const [order, setOrder] = useState("createdAt");
+- const sortedItems = items.sort((a, b) => b[order] - a[order]);
