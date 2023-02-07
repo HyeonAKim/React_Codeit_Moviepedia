@@ -16,7 +16,7 @@ function ReviewListItem({ item }) {
       <div>
         <h1>{item.title}</h1>
         <p>{item.rating}</p>
-        <p>{formatDate(item.createAt)}</p>
+        <p>{formatDate(item.createdAt)}</p>
         <p>{item.content}</p>
       </div>
     </div>
