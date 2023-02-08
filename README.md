@@ -10,3 +10,10 @@
 
 - const [order, setOrder] = useState("createdAt");
 - const sortedItems = items.sort((a, b) => b[order] - a[order]);
+
+## 4. Filter 로 아이템 삭제하기
+
+- const [items, setItems] = useState(mockItems);
+- const handleDelte = (id) => {
+  const nextItems = items.filter((item) => item.id !== id) ;
+  setItems(nextItems); };
