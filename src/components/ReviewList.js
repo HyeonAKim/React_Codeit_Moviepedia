@@ -33,7 +33,6 @@ function ReviewList({ items, onDelete }) {
         return (
           <li key={item.id}>
             <ReviewListItem item={item} onDelete={onDelete} />
-            <input></input>
           </li>
         );
       })}
