@@ -46,9 +46,7 @@ function App() {
       </div>
       <div>
         <ReviewList items={sortedItems} onDelete={handleDelete} />
-        <button disabled={!hasNext} onClick={handleLoadMore}>
-          더보기
-        </button>
+        {hasNext && <button onClick={handleLoadMore}>더보기</button>}
       </div>
     </>
   );
