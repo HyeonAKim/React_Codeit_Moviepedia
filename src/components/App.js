@@ -1,6 +1,7 @@
 import ReviewList from "./ReviewList";
 import { useEffect, useState } from "react";
 import { getReviews } from "../api";
+import ReviewForm from "./ReviewForm";
 
 const LIMIT = 6;
 function App() {
@@ -57,6 +58,7 @@ function App() {
         <button onClick={handleRatingClick}>평점순</button>
         <button onClick={handleCreatedClick}>최신순</button>
       </div>
+      <ReviewForm />
       <div>
         <ReviewList items={sortedItems} onDelete={handleDelete} />
         {hasNext && (
