@@ -92,3 +92,9 @@
 - review form 을 react에서 처리하기
 - ReviewForm.js를 생성하고 App.js에서 리뷰입력을 할 수 있는 html 생성
 - 그리고 리뷰 내용을 받아 오는 state 생성하기
+
+## 16. onSubmit 이벤트로 입력받은 값을 처리해보자.
+
+- ReviewForm.js 에 버튼을 추가하고 type을 submit으로 설정
+- form 에서 onSubmit 이벤트 발생 시 handleSubmint 이 실행되도록 하고
+- handleSubmit 에서 title, rating, content 를 콘솔에 출력하도록 수정
