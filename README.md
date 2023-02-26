@@ -98,3 +98,9 @@
 - ReviewForm.js 에 버튼을 추가하고 type을 submit으로 설정
 - form 에서 onSubmit 이벤트 발생 시 handleSubmint 이 실행되도록 하고
 - handleSubmit 에서 title, rating, content 를 콘솔에 출력하도록 수정
+
+## 17. 하나의 state로 폼구현하기
+
+- values 객체로 파라미터를 한번에 받아서 처리.
+- 태그의 name과 value를 활용해서 하나의 객체로 처리할 수 가 있음. 그러면 처리함수도 하나로 처리가 가능
+- 처리함수 handleChange에서는 setValues를 활용할때 spred 구문을 활용해서 여러개의 값들을 한번에 처리
