@@ -137,3 +137,13 @@
 
 - 각 영화 리뷰에서 별점 컴포넌트를 만들자. Rating.js , Rating.css
 - RATINGS 배열과 Map함수를 이용해서 Star Component 를 생성할 수 있도록 수정해준다.
+
+## 24. 별점 인풋 만들기 (select 함수 정의 )
+
+- ReviewForm.js 에서 rating input 컴포넌트를 생성할것이다. rating input을 대신할 RatingInput.js 를 생성하자. RatingInput 컴포넌트에 전달할 Props은 name, value, onChange함수이다. onChange 함수는 변경 전에 handleInputChange를 사용하는데 별을 클릭 시 바뀐 값을 가져올 것으로 handleChange로 변경하자.
+- RatingInput.js를 생성하고 name, value, onChange(handleChange)를 받는 function(RatingInput)을 생성하자. Return 값으로는 Rating 컴포넌트를 넘긴다. Rating의 props으로 rating 값과 별이 클릭되었을때 별점 값을 받아 Onchange(handleChange) 함수를 실행하는 handleSelect를 전달하자.
+- Rating.js를 수정하자. 기존에 value 값만 props으로 받았던 Rating 함수를 onSelect props을 추가해서 받도록 수정한다. 그리고 Star 함수에 rating 값과 onSelect props을 추가하고 onSelect(handleSelect)를 넘겨준다.
+- Star 함수에서 이제 별을 클릭했을 때 handleSelect 값에 별의 rating 점수를 전달하면 된다. onSelect prop 값이 존재하면 값에 rating 값을 전달하고 아니면 undefine로 선언하는 handleClick 함수를 생성하고 별을 표시하는 span 에 onClick 이벤트에 handleClick 함수를 지정해주면 된다.
+- 별을 클릭시에 onClick -> Star.handleClick(rating) -> Rating.onSelect(rating)-> RatingInput.onChange(name, rating) -> ReviewForm.handleChange(name, rating) 이렇게 함수가 함수를 실행하는 방식으로 최상위 함수가 실행된다.
+- 여기까지하면 별을 클릭할 때 ReviewForm State 가 잘 변경되는 것을 확인할 수 있다. 하지만 여기서 Rating 에서 key props이 필요하다는 warning 이 발생하는데 이것은 Rating.js에서 Rating 함수에서 여러개의 star 컴포넌트를 호출할때 key 값을 설정해주면된다.
+- 추가로 별 선택할 때 마우스 포인트를 바꿔주는 css를 적용하자. RatingInput.css 를 생성하고 RatingInput.js에 import 한다. 그리고 Rating 컴포넌트에 className을 전달한다. Rating.js에서 Rating 함수의 props에 className을 추가하고 div 태그에 해당 className을 적용한다.
