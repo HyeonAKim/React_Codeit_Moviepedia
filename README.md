@@ -147,3 +147,12 @@
 - 별을 클릭시에 onClick -> Star.handleClick(rating) -> Rating.onSelect(rating)-> RatingInput.onChange(name, rating) -> ReviewForm.handleChange(name, rating) 이렇게 함수가 함수를 실행하는 방식으로 최상위 함수가 실행된다.
 - 여기까지하면 별을 클릭할 때 ReviewForm State 가 잘 변경되는 것을 확인할 수 있다. 하지만 여기서 Rating 에서 key props이 필요하다는 warning 이 발생하는데 이것은 Rating.js에서 Rating 함수에서 여러개의 star 컴포넌트를 호출할때 key 값을 설정해주면된다.
 - 추가로 별 선택할 때 마우스 포인트를 바꿔주는 css를 적용하자. RatingInput.css 를 생성하고 RatingInput.js에 import 한다. 그리고 Rating 컴포넌트에 className을 전달한다. Rating.js에서 Rating 함수의 props에 className을 추가하고 div 태그에 해당 className을 적용한다.
+
+## 25. 별점 인풋 만들기 (마우스오버, 마우스아웃 효과 적용하기)
+
+- RatingInput.js 에서 마우스오버와 마우스아웃 시 Rating 컴포넌트에 전달할 props 함수를 생성할 것이다.
+- 먼저 마우스오버시에는 해당 별들의 색상이 바뀔 수 있게 rating state를 생성하고 Rating 컴포넌트에 onHover를 생성해서 setRating state함수를 전달하자. 그리고 마우스를 올렸을 때 색상이 변하도록 value값에 rating state를 전달하자.
+- Rating.js에서 Rating 함수에서 onHover(setRating)을 받아서 Star 컴포넌트로 전달한다. Star 함수에서 마우스가 over 이벤트를 생성하고 handleMouseOver 함수가 실행되도록한다. handleMouseOver함수는 onHover(setRating) 함수에 현재 마우스가 올라간 rating 값을 전달한다.
+- 이렇게 하면 마우스를 올렸을때 별 생각이 변경 되지만 ReviewForm 에 state 값을 바뀌지 않는 것을 알 수 있다. 그럼 이제 마우스아웃 효과를 적용해보자.
+- RatingInput.js 에서 handleMouseOut 함수를 생성하고 setRating 값을 ReviewForm에서 전달받은 value값으로 설정해주자. 그런다음 Rating 컴포넌트에 onMouseOut props을 생성해서 handleMouseOut 함수를 전달하자.
+- Rating.js 에서 Rating 함수에서 onMouseOut 프롭을 추가하고 div 태그에 onMouseOut 이벤트에 onMouseOut 함수를 할당해주자.
