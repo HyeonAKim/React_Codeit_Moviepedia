@@ -132,3 +132,8 @@
 - 초기화 버튼을 눌러도 preview에는 url에 남아 있어서 이를 정리해줘야함 .
 - 화면에 보이지 않게 하기 위해서는 단순히 value 값이 null 일 때 setPreview값을 빈 값으로 넘기면 됨
 - 하지만 브라우져 메모리에 담긴 objectURL은 초기화가 되지 않음. return 값에 콜백함수로 초기화하도록 넘겨줘야함
+
+## 23. 별점 컴포넌트 만들기
+
+- 각 영화 리뷰에서 별점 컴포넌트를 만들자. Rating.js , Rating.css
+- RATINGS 배열과 Map함수를 이용해서 Star Component 를 생성할 수 있도록 수정해준다.
