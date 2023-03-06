@@ -156,3 +156,11 @@
 - 이렇게 하면 마우스를 올렸을때 별 생각이 변경 되지만 ReviewForm 에 state 값을 바뀌지 않는 것을 알 수 있다. 그럼 이제 마우스아웃 효과를 적용해보자.
 - RatingInput.js 에서 handleMouseOut 함수를 생성하고 setRating 값을 ReviewForm에서 전달받은 value값으로 설정해주자. 그런다음 Rating 컴포넌트에 onMouseOut props을 생성해서 handleMouseOut 함수를 전달하자.
 - Rating.js 에서 Rating 함수에서 onMouseOut 프롭을 추가하고 div 태그에 onMouseOut 이벤트에 onMouseOut 함수를 할당해주자.
+
+# 26. 글작성하기
+
+- 데이터 보내기 : formData 를 생성하고 fetch('link', {method:'POST', body: formData,}); 식으로 데이터를 보내줄 수 있다.
+- 그럼 영화리뷰를 작성해서 글을 보내보자.
+- 1. api.js 파일에서 fetch를 보내는 createReview 함수를 만들자.
+- 2. ReviewForm.js 파일에서 handleSumit이 실행될때 createReview함수가 실행되도록 변경하자. 그리고 보낸뒤에는 inital_value로 입력 값들을 초기화 하자.
+- 3. 전송을 할때 여러번 전송되는 것을 방지하고자 에러처리를 마지막으로 해주면 된다. App.js 에서 isLoading 처리했던 부분과 동일하다.
