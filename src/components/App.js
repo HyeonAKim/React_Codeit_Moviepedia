@@ -48,6 +48,10 @@ function App() {
     handleLoad({ order, offset, limit: LIMIT });
   };
 
+  const handlleSubmitSuccess = (review) => {
+    setItems((prevItems) => [review, ...prevItems]);
+  };
+
   useEffect(() => {
     handleLoad({ order, offset: 0, limit: LIMIT });
   }, [order]);
@@ -58,7 +62,7 @@ function App() {
         <button onClick={handleRatingClick}>평점순</button>
         <button onClick={handleCreatedClick}>최신순</button>
       </div>
-      <ReviewForm />
+      <ReviewForm onSubmitSuccess={handlleSubmitSuccess} />
       <div>
         <ReviewList items={sortedItems} onDelete={handleDelete} />
         {hasNext && (

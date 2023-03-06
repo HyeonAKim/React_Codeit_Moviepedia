@@ -164,3 +164,10 @@
 - 1. api.js 파일에서 fetch를 보내는 createReview 함수를 만들자.
 - 2. ReviewForm.js 파일에서 handleSumit이 실행될때 createReview함수가 실행되도록 변경하자. 그리고 보낸뒤에는 inital_value로 입력 값들을 초기화 하자.
 - 3. 전송을 할때 여러번 전송되는 것을 방지하고자 에러처리를 마지막으로 해주면 된다. App.js 에서 isLoading 처리했던 부분과 동일하다.
+
+# 27. 리스폰스 데이터 반영학
+
+- 새로고침 없이 곧바로 반영하는 방법을 알아보자. 네트워크에서 받은 response를 App.js 의 item목록에 추가하면 된다.
+- 1. App.js 에서 review 값을 기존 item에 반영하는 함수(handleSubmitSuccess)를 생성하자.
+- 2. ReviewForm 에 probs onSubmitSuccess라는 이름으로 handleSubmitSuccess 함수를 전달하자.
+- 3. response 값을 받아서 onSubmitSuccess함수로 전달하면 끗!
