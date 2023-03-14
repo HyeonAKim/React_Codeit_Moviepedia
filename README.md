@@ -171,3 +171,16 @@
 - 1. App.js 에서 review 값을 기존 item에 반영하는 함수(handleSubmitSuccess)를 생성하자.
 - 2. ReviewForm 에 probs onSubmitSuccess라는 이름으로 handleSubmitSuccess 함수를 전달하자.
 - 3. response 값을 받아서 onSubmitSuccess함수로 전달하면 끗!
+
+## 28. 글 수정하기 1
+
+- 수정버튼을 눌렀을 때 입력폼을 보여주기 : 리뷰리스트에서 해당 리스트를 기억하고, 해당 리뷰만 랜더링하는 것이 키포인트이다.
+- ReviewList에서 editingId 라는 state를 만들고 item.id 가 editingId와 동일할 때 리뷰폼을 보여준다.
+- 수정버튼을 눌렀을때 editingId에 item.id를 할당한다. 이렇게 하면 수정 버튼을 누르면 입력폼이 나온다.
+- 이제 수정버튼을 눌렀을 때 입력폼에 기존 리뷰가 작성되어 있게끔 변경해주자.
+- reviewForm.js에서 initalvalue, onCancle Props을 생성해서 기본값으로 할당하고 onCancle 함수가 있을때만 취소버튼이 보이도록 하자.
+- 이제 ReviewList.js에서 initalValue값과 onCancle 프롭을 내려주자. 수정버튼을 눌렀을때 기본값으로 item의 내용을 전달하고 취소버튼을 눌렀을때 editingId를 Null로 변경하자.
+- 다음으로는 이미지 url를 전달하자. ReviewList.js initialPreview 프롭으로 ReviewForm.js에 imgURL를 전달하고 이프롭을 그대로 FileInput으로 보내주자.
+- fileInput.js에서 initailPreview를 setPreview의 초기값으로 설정해주자. 이미지를 취소하였을 때도 원래의 이미지를 보여줄 수 있게끔 useEffect return에서 초기화하는 부분에도 initialPreview로 설정해놓고, useEffect가 실행되는 dependancy 파라에도 initialPreview를 추가해주자.
+
+5일을 쉬었더니 코딩하는것도 어색해졌다. 음악하는 분들이 매일 악기를 다루고, 운동하는 사람들이 매일 운동을 하듯이 나는 코딩하는 사람이니 매일 조금이라고 코딩을 해야겠다. 다시 시작하자!
