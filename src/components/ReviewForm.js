@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { createReview } from "../api";
 import FileInput from "./FileInput";
 import RatingInput from "./RatingInput";
 import "./ReviewForm.css";
@@ -14,6 +13,7 @@ const INITIAL_VALUES = {
 function ReviewForm({
   initialValues = INITIAL_VALUES,
   initialPreview,
+  onSubmit,
   onSubmitSuccess,
   onCancle,
 }) {
@@ -44,7 +44,7 @@ function ReviewForm({
     try {
       setSubmittingError(null);
       setIsSubmitting(true);
-      result = await createReview(formData);
+      result = await onSubmit(formData);
     } catch (error) {
       setSubmittingError(error);
       return;

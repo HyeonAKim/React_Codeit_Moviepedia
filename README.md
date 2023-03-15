@@ -184,3 +184,20 @@
 - fileInput.js에서 initailPreview를 setPreview의 초기값으로 설정해주자. 이미지를 취소하였을 때도 원래의 이미지를 보여줄 수 있게끔 useEffect return에서 초기화하는 부분에도 initialPreview로 설정해놓고, useEffect가 실행되는 dependancy 파라에도 initialPreview를 추가해주자.
 
 5일을 쉬었더니 코딩하는것도 어색해졌다. 음악하는 분들이 매일 악기를 다루고, 운동하는 사람들이 매일 운동을 하듯이 나는 코딩하는 사람이니 매일 조금이라고 코딩을 해야겠다. 다시 시작하자!
+
+## 29. 글 수정하기 2
+
+- 리뷰를 수정하고 서버에 전송하자.
+- reviewForm.js 에서는 리뷰폼의 종류가 입력폼인지, 수정폼인지 알 수 없다. 그래서 상황에 따라 다른 api를 넘겨줄 수 있도록 수정하자.
+- ReviewForm.js 에 onSubmit 프롭으로 createReview 함수를 대신해주자.
+- app.js 에서 ReviewForm onsubmit={createReview}를 넘겨주고 submitSuccess 를 handleCreateSubmit으로 이름만 바꿔주자 . -> 기존 기능이 잘되는지 확인
+- 수정 데이터 전송 테스트 :
+  const formData = new FormData();
+  formData.append('title', '수정됨');
+  fetch('https://learn.codeit.kr/api/film-reviews/44', { method: 'PUT', body: formdata});
+
+- 이제 업데이트하는 api 메소드를 생성하자. api.js파일에서 updateReview함수를 수정해준다.
+- 글을 불러오고 입력하는 app.js 컴포넌트에 수정하는 것도 추가해주자. handleUpdateSucess 함수를 생성하고 이함수에서 api를 전송하고 받아온 리스폰스를 현재 리스트에 반영해주는 역할을 하도록 작성하자.
+- app.js reviewList 함수에 업데이트 api와 리스폰스를 받아 리스트에 반영해주는 handleUpdateSucess 넘겨주자.
+- ReviewList.js에서 해당 onUpdate, onUpdateSuccess 프롬을 reviewForm에 넘겨줄 수 있도록 onSubmit={handleSubmit} , onSubmitSuccess={handleSubmitSuccess} 이렇게 해당 함수를 만들어주자.
+- handleSubmit 은 추가로 id 값을 받아서 넘겨주고 , handleSubmitSuccess이 실행될때는 onUpdateSuccess 에 리뷰리스트를 전달하고, setEditingid를 null로 만들어서 에딧창을 닫아주자.
